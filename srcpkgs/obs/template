@@ -12,7 +12,7 @@ configure_args="-DOBS_VERSION_OVERRIDE=${version}"
 hostmakedepends="pkg-config swig"
 makedepends="LuaJIT-devel fdk-aac-devel ffmpeg-devel glu-devel jack-devel
 libXcomposite-devel libcurl-devel pulseaudio-devel python3-devel
-qt5-x11extras-devel speexdsp-devel v4l-utils-devel vlc-devel x264-devel"
+qt5-x11extras-devel speexdsp-devel v4l-utils-devel vlc-devel x264-devel libva-devel"
 short_desc="Open Broadcaster Software"
 maintainer="lemmi <lemmi@nerd2nerd.org>"
 license="GPL-2.0-or-later"
