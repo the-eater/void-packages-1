@@ -1,0 +1,144 @@
+# Template file for 'dotnet'
+pkgname=dotnet
+version=2.1.4
+revision=1
+_commit_hash_coreclr="6ddb33afcf50380f37ac7a39b9b0d13533d7ac17"
+_commit_hash_roslyn="362ec0eec4c1d61b122e271423840950fedf13ff"
+_commit_hash_core_setup="85255dde3ecd86987236868a0415acd3265258d2"
+_commit_hash_standard="18a36291e48808fa7ef2d00a764ceb1ec95645a5"
+_commit_hash_cli="5b8776a9a416d531c61dedacfb302121f9c86f85"
+_commit_hash_nuget_client="c3240b16fcf3276246fc8c610771d14ab94fdc02"
+_commit_hash_templating="c0f84b79c361e961a699a5c70d255db11c0d411c"
+_commit_hash_vstest="ebef18a38a17e66b7c023ef3503cca353cbb72a3"
+_commit_hash_newtonsoft_json="e5ac9a8473dfdefb8fe2cddae433a9aaa94a5b37"
+_commit_hash_websdk="95a0c34806e574f7fdda79f3506f754101f6ae7f"
+_commit_hash_msbuild="766e041ee15b9a11f673c201e2a82171311063f9"
+_commit_hash_applicationinsights_dotnet="53b80940842204f78708a538628288ff5d741a1d"
+_commit_hash_clicommandlineparser="9885d85d6dc33ddd3c5a195c68db95fab6766223"
+_commit_hash_cli_migrate="cef9d1e08b58db26934c23a4d77889e80c3ac6ed"
+_commit_hash_corefx="96925bba1377b6042fc7322564b600a4e651f7fd"
+_commit_hash_visualfsharp="d3f02429a9b28c4d086fc5e2b63171b972751037"
+_commit_hash_xliff_tasks="27d43b762aa6dac3a0a6ba48fe55000942d75c1c"
+_commit_hash_common="be9aca0f20c979498298be47e843e3a7b8777dca"
+_commit_hash_sdk="e1240e4547a992d9e900293aea88ee92f93a45cc"
+_commit_hash_roslyn_tools="c442fe46e02b31e3954a7c669cc309a8b0175115"
+wrksrc="source-build-${version}"
+#create_wrksrc=yes
+#only_for_archs="i686 x86_64"
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends="pkg-config curl git"
+makedepends="libressl-devel icu-libs"
+depends=""
+short_desc="The .NET Core runtime"
+maintainer="eater <=@eater.me>"
+license="MIT"
+homepage="https://www.microsoft.com/net"
+distfiles="https://github.com/dotnet/source-build/archive/v${version}.tar.gz
+https://github.com/dotnet/coreclr/archive/${_commit_hash_coreclr}.tar.gz>coreclr.tgz
+https://github.com/dotnet/roslyn/archive/${_commit_hash_roslyn}.tar.gz>roslyn.tgz
+https://github.com/dotnet/core-setup/archive/${_commit_hash_core_setup}.tar.gz>core_setup.tgz
+https://github.com/dotnet/standard/archive/${_commit_hash_standard}.tar.gz>standard.tgz
+https://github.com/dotnet/cli/archive/${_commit_hash_cli}.tar.gz>cli.tgz
+https://github.com/NuGet/NuGet.Client/archive/${_commit_hash_nuget_client}.tar.gz>nuget.client.tgz
+https://github.com/dotnet/templating/archive/${_commit_hash_templating}.tar.gz>templating.tgz
+https://github.com/Microsoft/vstest/archive/${_commit_hash_vstest}.tar.gz>vstest.tgz
+https://github.com/JamesNK/Newtonsoft.Json/archive/${_commit_hash_newtonsoft_json}.tar.gz>newtonsoft.json.tgz
+https://github.com/aspnet/websdk/archive/${_commit_hash_websdk}.tar.gz>websdk.tgz
+https://github.com/Microsoft/msbuild/archive/${_commit_hash_msbuild}.tar.gz>msbuild.tgz
+https://github.com/Microsoft/ApplicationInsights-dotnet/archive/${_commit_hash_applicationinsights_dotnet}.tar.gz>applicationinsights_dotnet.tgz
+https://github.com/dotnet/clicommandlineparser/archive/${_commit_hash_clicommandlineparser}.tar.gz>clicommandlineparser.tgz
+https://github.com/dotnet/cli-migrate/archive/${_commit_hash_cli_migrate}.tar.gz>cli_migrate.tgz
+https://github.com/dotnet/corefx/archive/${_commit_hash_corefx}.tar.gz>corefx.tgz
+https://github.com/Microsoft/VisualFSharp/archive/${_commit_hash_visualfsharp}.tar.gz>visualfsharp.tgz
+https://github.com/dotnet/xliff-tasks/archive/${_commit_hash_xliff_tasks}.tar.gz>xliff_tasks.tgz
+https://github.com/aspnet/common/archive/${_commit_hash_common}.tar.gz>common.tgz
+https://github.com/dotnet/sdk/archive/${_commit_hash_sdk}.tar.gz>sdk.tgz
+https://github.com/dotnet/roslyn-tools/archive/${_commit_hash_roslyn_tools}.tar.gz>roslyn_tools.tgz"
+checksum="ed7f34876517f814f80000745947177f9064935d1202193b4b4b10c83d47b87a
+dea73905170d795a478068814c0a331f6430e3ba567a072379eada32351a1018
+72cf47678c07af753b7c7453bdc8c4904caab443f93bcc1eaedc7f60fba04df9
+22d503310cb866e8f27f327e1f9df081f98625ccb0c9059cbc706ff359a52b53
+754ee66a33122c6c5c45fe75d060f9131c6b16a23af315c8c063a54fbc911e7c
+7257452b73a2f19d867f7bac565a1ae6b9b8ed171f72885fdb2824b7babceaec
+94aeff41f541f2243671ae83eedc5fd275435d777cb657d67d07cc36774b39cc
+294f65a4af8dfc90f73fd1a8f4ca9dd8d3e0a9d39536bbf41a2fac97317f8765
+48af00751d495a53bd122b2c9bc94d22e661ad9b1b2d5bb3fbe86e8400411418
+2e7b16138fdf371698311caa1151087ee746b67d877e68dd1806cc9ead2166ed
+2e79fdb964045a1ecbdd3f7e2848ef70c549b78cb37bfe1d1dd6416410b08d1a
+4b7158d9be037bcd9ae327c322405d974fb79917f5c0bec95de86f78e24b9ef2
+55dcfc89ffbab6ffeac041b3aadaf8b7dd31302637db37c43588f978cb0b7241
+8714e0f6f3ae2d75c9067d54d4b5d94b5a2bf29fa346ab184262c0e7d205e684
+8803d62a2448e5c20c300ff1a292c0f615ea67aa071f922d81140b56b0d175ca
+478800e57d355543ed49e6b8dff6137f571987926bb00338263f9b4abea83f78
+6cb129081ecf7a61ea636171df04ad28a6058a9cf97ef32fa9c31a7f7bacf488
+b56b752405c146324b493e69cbcf891b99e5b719c7bf8a4ade228d2a2cc21f7c
+7c72ff192f46b312ae6cd3ab4142da4883116b985cf06df3661b2d4877151bee
+19b4abde6c6596e5cef110d5825fee939c68f026906a378fc27050062e84d9fe
+990ffc2c46623bc8cb749bed60a8a71e265ef91cbbcdaa89e17b2e781bd29de6"
+
+post_extract() {
+    # cd "${wrksrc}"
+
+	rmdir ./src/coreclr;
+	mv -T "../coreclr-${_commit_hash_coreclr}" ./src/coreclr;
+	rmdir ./src/roslyn;
+	mv -T "../roslyn-${_commit_hash_roslyn}" ./src/roslyn;
+	rmdir ./src/core-setup;
+	mv -T "../core-setup-${_commit_hash_core_setup}" ./src/core-setup;
+	rmdir ./src/standard;
+	mv -T "../standard-${_commit_hash_standard}" ./src/standard;
+	rmdir ./src/cli;
+	mv -T "../cli-${_commit_hash_cli}" ./src/cli;
+	rmdir ./src/nuget-client;
+	mv -T "../NuGet.Client-${_commit_hash_nuget_client}" ./src/nuget-client;
+	rmdir ./src/templating;
+	mv -T "../templating-${_commit_hash_templating}" ./src/templating;
+	rmdir ./src/vstest;
+	mv -T "../vstest-${_commit_hash_vstest}" ./src/vstest;
+	rmdir ./src/newtonsoft-json;
+	mv -T "../Newtonsoft.Json-${_commit_hash_newtonsoft_json}" ./src/newtonsoft-json;
+	rmdir ./src/websdk;
+	mv -T "../websdk-${_commit_hash_websdk}" ./src/websdk;
+	rmdir ./src/msbuild;
+	mv -T "../msbuild-${_commit_hash_msbuild}" ./src/msbuild;
+	rmdir ./src/application-insights;
+	mv -T "../ApplicationInsights-dotnet-${_commit_hash_applicationinsights_dotnet}" ./src/application-insights;
+	rmdir ./src/clicommandlineparser;
+	mv -T "../CliCommandLineParser-${_commit_hash_clicommandlineparser}" ./src/clicommandlineparser;
+	rmdir ./src/cli-migrate;
+	mv -T "../cli-migrate-${_commit_hash_cli_migrate}" ./src/cli-migrate;
+	rmdir ./src/corefx;
+	mv -T "../corefx-${_commit_hash_corefx}" ./src/corefx;
+	rmdir ./src/fsharp;
+	mv -T "../visualfsharp-${_commit_hash_visualfsharp}" ./src/fsharp;
+	rmdir ./src/xliff-tasks;
+	mv -T "../xliff-tasks-${_commit_hash_xliff_tasks}" ./src/xliff-tasks;
+	rmdir ./src/common;
+	mv -T "../Common-${_commit_hash_common}" ./src/common;
+	rmdir ./src/sdk;
+	mv -T "../sdk-${_commit_hash_sdk}" ./src/sdk;
+	rmdir ./src/roslyn-tools;
+	mv -T "../roslyn-tools-${_commit_hash_roslyn_tools}" ./src/roslyn-tools;
+}
+
+do_build() {
+    export SOURCE_BUILD_SKIP_SUBMODULE_CHECK=1
+    # CLR will try to use 1.0.x
+    # LibreSSL has a very different versioning system
+    export CLR_OPENSSL_VERSION_OVERRIDE="$(readlink /usr/lib/libssl.so | cut -c 11- | grep '^[0-9]\+')"
+
+    # Roslyn and clicommandlineparser need a git commit hash
+    sed -i "s:--restore:--restore /p\:GitHeadSha=${_commit_hash_roslyn}:" ./src/roslyn-tools/build.sh
+    sed -i "s:--build:--build /p\:GitHeadSha=${_commit_hash_clicommandlineparser}:" ./src/clicommandlineparser/build.sh
+    sed -i "s:eval \$commandLine:eval \"\${commandLine} /p\:GitHeadSha=${_commit_hash_msbuild}\":" ./src/msbuild/build/build.sh
+
+    ./build.sh
+}
+
+do_install() {
+    :
+}

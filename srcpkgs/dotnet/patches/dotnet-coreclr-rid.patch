@@ -1,0 +1,38 @@
+
+--- src/coreclr/build-packages.sh	2018-06-21 11:53:45.890536633 +0200
++++ src/coreclr/build-packages.sh	2018-06-21 11:57:34.508917604 +0200
+@@ -24,6 +24,9 @@ initHostDistroRid()
+             if [[ $ID == "alpine" ]]; then
+                 __HostDistroRid="linux-musl-$__Arch"
+             fi
++            if [[ $ID == "void" ]]; then
++                __HostDistroRid="void-$__Arch"
++            fi
+         elif [ -e /etc/redhat-release ]; then
+             local redhatRelease=$(</etc/redhat-release)
+             if [[ $redhatRelease == "CentOS release 6."* || $redhatRelease == "Red Hat Enterprise Linux Server release 6."* ]]; then
+diff -rupN src/coreclr/build.sh src/coreclr/build.sh
+--- src/coreclr/build.sh	2018-06-21 11:53:45.890536633 +0200
++++ src/coreclr/build.sh	2018-06-21 11:56:19.968359087 +0200
+@@ -73,6 +73,9 @@ initHostDistroRid()
+             if [[ $ID == "alpine" ]]; then
+                 __HostDistroRid="linux-musl-$__HostArch"
+             fi
++            if [[ $ID == "void" ]]; then
++                __HostDistroRid="void-$__HostArch"
++            fi
+         elif [ -e /etc/redhat-release ]; then
+             local redhatRelease=$(</etc/redhat-release)
+             if [[ $redhatRelease == "CentOS release 6."* || $redhatRelease == "Red Hat Enterprise Linux Server release 6."* ]]; then
+diff -rupN src/coreclr/build-test.sh src/coreclr/build-test.sh
+--- src/coreclr/build-test.sh	2018-06-21 11:53:45.890536633 +0200
++++ src/coreclr/build-test.sh	2018-06-21 11:58:19.189252190 +0200
+@@ -21,6 +21,8 @@ initHostDistroRid()
+             source /etc/os-release
+             if [[ $ID == "alpine" ]]; then
+                 __HostDistroRid="linux-musl-$__HostArch"
++            elif [[ $ID == "void" ]]; then
++                __HostDistroRid="void-$__HostArch"
+             else
+                 __PortableBuild=1
+                 __HostDistroRid="$ID.$VERSION_ID-$__HostArch"
